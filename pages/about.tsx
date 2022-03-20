@@ -20,15 +20,7 @@ const About: NextPage = () => {
         <Header />
 
         <div className="my-12 prose">
-          <p className="px-4 py-3 text-sm text-gray-500 border rounded">
-            <strong className="font-medium text-gray-800">
-              Editors’ explanation, apology and excuse:
-            </strong>{' '}
-            The Hoar shut down a little while after it stopped being funny. This
-            site is a snapshot taken around that time. All of these articles
-            were sent in by readers whose names we didn’t ask for, and were
-            published mostly without prejudice.
-          </p>
+          
           <h2 className="text-4xl font-light tracking-tight">
             The<em> Hoar</em> was a satire rag,
             <br />

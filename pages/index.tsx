@@ -52,7 +52,7 @@ const Home: NextPage = ({ posts }: any) => {
             )
           }
           return (
-            <Link key={item.path} href="[...slug].tsx" as={item.path}>
+            <Link key={item.path} href={item.path}>
               <a className="inline-block hover:opacity-70">{littleImage()}</a>
             </Link>
           )
