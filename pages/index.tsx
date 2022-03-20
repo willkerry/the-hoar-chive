@@ -25,7 +25,7 @@ const Home: NextPage = ({ posts }: any) => {
           type="article"
           date={posts[0].date}
         />
-      <main className="flex flex-col flex-1 max-w-screen-sm gap-2 px-4 my-8">
+      <main className="flex flex-col flex-1 max-w-screen-sm gap-4 px-4 my-8">
         <Header />
         <div className="h-6" />
         {posts.map((item: any) => {
