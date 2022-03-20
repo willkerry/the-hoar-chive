@@ -24,12 +24,10 @@ export default function Story({
       >
         {prettyDate}
       </time>
-
       <h2 className="mb-4 text-4xl font-semibold leading-9 tracking-tight">
         {title}
       </h2>
-      <p className="pb-6 text-lg font-light leading-snug">{description}</p>
-
+      <p className="pb-6 text-xl font-light leading-snug">{description}</p>
       {aspectRatio && (
         <div className="flex mb-6 overflow-hidden border rounded">
           <Image
