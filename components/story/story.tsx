@@ -1,7 +1,6 @@
 import React from 'react'
 import StoryType from '../../types/story'
 import Image from 'next/image'
-import ReactMarkdown from 'react-markdown'
 
 export default function Story({
   slug,
