@@ -49,7 +49,7 @@ const Book: NextPage = () => {
 
           <div className="flex justify-center">
             <Link href="https://www.amazon.co.uk/gp/product/1543260004/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1543260004&linkCode=as2&tag=wkerrycouk-21">
-              <a href="" className="px-4 py-2 no-underline uppercase border-2 border-gray-800 rounded focus:outline-none hover:bg-gray-800 hover:text-white focus:ring-4 focus:ring-yellow-400 active:translate-y-px active:bg-gray-700 active:text-white">
+              <a className="px-4 py-2 no-underline uppercase border-2 border-gray-800 rounded focus:outline-none hover:bg-gray-800 hover:text-white focus:ring-4 focus:ring-yellow-400 active:translate-y-px active:bg-gray-700 active:text-white">
                 Buy the book on Amazon
               </a>
             </Link>
