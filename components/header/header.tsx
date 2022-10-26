@@ -19,7 +19,13 @@ const Header: any = () => {
         href="https://www.amazon.co.uk/gp/product/1543260004/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1543260004&linkCode=as2&tag=wkerrycouk-21"
         className="flex py-1 pl-2 border-2 border-transparent rounded hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 active:border-gray-600"
       >
-        <Image src="/logo/book.png" width={40} height={50} className="flex" />
+        <Image
+          src="/logo/book.png"
+          width={40}
+          height={50}
+          className="flex"
+          alt="Our big white paperback Hoar book."
+        />
       </a>
     </div>
   )

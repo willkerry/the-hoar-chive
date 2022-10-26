@@ -28,6 +28,7 @@ const Book: NextPage = () => {
             src="https://thehoar.org/wp-content/uploads/2017/02/book.jpg"
             width={608}
             height={405}
+            alt="Our big white paperback Hoar book"
           />
 
           <p>This is the end, darling readers.</p>

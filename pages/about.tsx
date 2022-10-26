@@ -20,7 +20,6 @@ const About: NextPage = () => {
         <Header />
 
         <div className="my-12 prose">
-          
           <h2 className="text-4xl font-light tracking-tight">
             The<em> Hoar</em> was a satire rag,
             <br />
@@ -62,6 +61,7 @@ const About: NextPage = () => {
             src="https://thehoar.org/wp-content/uploads/2016/03/protest-footer.png"
             width={608}
             height={166}
+            alt="A line drawing of a 'skyline' of protest signs and placards hoisted above unseen heads."
           />
         </div>
       </main>
