@@ -5,7 +5,7 @@ const Header: any = () => {
   return (
     <div className="flex items-center justify-between">
       <Link href="/">
-        <a>
+        <>
           <h1 className="text-2xl font-bold tracking-tight">
             The Hoar<span className="font-thin">chive</span>
           </h1>
@@ -13,7 +13,7 @@ const Header: any = () => {
             Satire, <span className="line-through">freshly</span> squeezed from
             Warwick Uni
           </p>
-        </a>
+        </>
       </Link>
       <a
         href="https://www.amazon.co.uk/gp/product/1543260004/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1543260004&linkCode=as2&tag=wkerrycouk-21"

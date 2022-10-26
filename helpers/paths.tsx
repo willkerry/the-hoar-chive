@@ -11,10 +11,12 @@ export const getYearMonthDay = (date: string): string[] => {
 }
 
 export const buildPath = (slug: string, date: string): string[] => [
-  'blog',
   ...getYearMonthDay(date),
   slug,
 ]
 
 export const printPath = (slug: string, date: string): string =>
   buildPath(slug, date).join('/')
+
+export const relativisePath = (path: string): string =>
+  path.replace('https://thehoar.org', '')

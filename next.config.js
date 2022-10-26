@@ -4,4 +4,7 @@ module.exports = {
   images: {
     domains: ['thehoar.org'],
   },
+  experimental: {
+    appDir: true,
+  },
 }
