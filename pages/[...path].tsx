@@ -1,6 +1,5 @@
 import { buildPath } from '../helpers/paths'
 import Story from '../components/story'
-import Head from 'next/head'
 import { GetStaticPaths } from 'next'
 import data from '../data/out.json'
 import type StoryType from '../types/story'
