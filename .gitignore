@@ -8,8 +8,8 @@
 # testing
 /coverage
 
-# next.js
-/.next/
+# astro
+/dist/
 /out/
 
 # production
@@ -17,6 +17,7 @@
 
 # misc
 .DS_Store
+.vscode
 *.pem
 
 # debug

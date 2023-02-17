@@ -1,17 +1,9 @@
-const colors = require('tailwindcss/colors')
-
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    colors: {
-      gray: colors.neutral,
-      ...colors,
-    },
     fontFamily: {
-      sans: ['RubikVariable', 'sans-serif'],
+      sans: ["RubikVariable", "sans-serif"],
     },
     extend: {
       typography: {
@@ -19,15 +11,15 @@ module.exports = {
           css: {
             h1: {
               fontWeight: 500,
-              letterSpacing: '-0.01562em',
+              letterSpacing: "-0.01562em",
             },
             h2: {
               fontWeight: 500,
-              letterSpacing: '-0.01em',
+              letterSpacing: "-0.01em",
             },
             h3: {
               fontWeight: 500,
-              letterSpacing: '-0.01em',
+              letterSpacing: "-0.01em",
             },
             h4: {
               fontWeight: 500,
@@ -38,7 +30,7 @@ module.exports = {
             h6: {
               fontWeight: 500,
             },
-            
+
             blockquote: {
               borderLeftWidth: null,
               borderLeftColor: null,
@@ -48,33 +40,34 @@ module.exports = {
               marginTop: null,
               marginBottom: null,
               fontStyle: null,
-              fontWeight: 'bold',
-              fontSize: '1.25rem',
-              textTransform: 'uppercase',
-              lineHeight: '27px',
-              quotes: 'none',
+              fontWeight: "bold",
+              fontSize: "1.25rem",
+              textTransform: "uppercase",
+              lineHeight: "27px",
+              quotes: "none",
             },
-            'blockquote p': {
+            "blockquote p": {
               marginTop: 0,
               marginBottom: 0,
             },
-            'blockquote.alignleft, blockquote.aligncenter': {
-              float: 'left',
-              marginRight: '30px',
-              width: '40%',
+            "blockquote.alignleft, blockquote.aligncenter": {
+              float: "left",
+              marginRight: "30px",
+              width: "40%",
             },
-            'blockquote.alignright': {
-              float: 'right',
-              marginLeft: '30px',
-              width: '40%',
+            "blockquote.alignright": {
+              float: "right",
+              marginLeft: "30px",
+              width: "40%",
             },
             img: {
-              borderRadius: '5px',
+              borderRadius: "5px",
+              border: "1px solid #eaeaea",
             },
           },
         },
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
-}
+  plugins: [require("@tailwindcss/typography")],
+};

@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import data from "../data/out.json";
+import Preview from "../components/Preview.astro";
+
+type Post = {
+  date: string;
+  title: string;
+  slug: string;
+  description: string;
+  ogimage: string;
+  body: string;
+  aspectRatio: number;
+};
+
+const posts: Post[] = data;
+
+// Sort posts by date in descending order
+posts.sort((a, b) => {
+  if (a.date > b.date) return -1;
+  if (a.date < b.date) return 1;
+  return 0;
+});
+---
+
+<Layout
+  title="The Hoar"
+  description="Satire, freshly squeezed from Warwick Uni"
+  date="2021-09-01"
+>
+<div class="text-2xl my-6 font-light">
+  This is the work of around 100 anonymous contributors, between mid-2016 and early-2017.
+</div>
+  {
+    posts.map((post) => (
+      <Preview date={post.date} title={post.title} slug={post.slug} />
+    ))
+  }
+  <div class="prose dark:prose-invert my-24">
+    <h4>What is this?</h4>
+    <p>
+      It’s a static archive of the Hoar website from the mid-twenty-teens (i.e.
+      2016 to 2017).
+    </p>
+
+    <h4>Static?</h4>
+    <p>
+      The original Hoar site involved a long-running server that cost a lot to
+      run. When we shut down, we took a snapshot of the site and replaced the
+      server with a folder of HTML files connected to the internet. More
+      recently, browsers changed and our snapshot stopped working so well. We
+      wrote a script to fix it, and belatedly noticed that part of what that
+      script did was to extract all the content from the site and as structured
+      data, so configured a trendy static site generator to turn that data into
+      a proper static site.
+    </p>
+  </div>
+</Layout>
