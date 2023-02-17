@@ -12,7 +12,6 @@ export default defineConfig({
   vite: {
     build: {
       minify: false,
-      target: "es2015",
     },
   },
 });
