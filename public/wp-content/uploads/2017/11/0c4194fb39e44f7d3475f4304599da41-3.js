@@ -1,2 +1,0 @@
-/**handles:wpum-recaptcha-lib**/
-!function(){window.___grecaptcha_cfg||(window.___grecaptcha_cfg={}),window.___grecaptcha_cfg.render||(window.___grecaptcha_cfg.render="onload"),window.__google_recaptcha_client=!0;var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://www.gstatic.com/recaptcha/api2/r20171115120512/recaptcha__en.js";var t=document.querySelector("script[nonce]"),c=t&&(t.nonce||t.getAttribute("nonce"));c&&e.setAttribute("nonce",c);var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)}();
