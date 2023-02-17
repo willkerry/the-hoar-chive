@@ -1,45 +1,45 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import CTA from "../components/CTA.astro";
 ---
 
 <Layout title="We wrote a book" description="This is the end" wide>
   <div class="mt-12 prose">
     <h2 class="text-5xl font-light tracking-tight">We wrote a book</h2>
   </div>
-  <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-8"> -->
-    <div class="my-12 prose">
-      <img
-        src="https://thehoar.org/wp-content/uploads/2017/02/book.jpg"
-        width={608}
-        height={405}
-      />
-    </div>
+  <div class="my-12 prose">
+    <img
+      src="https://thehoar.org/wp-content/uploads/2017/02/book.jpg"
+      width={608}
+      height={405}
+    />
+  </div>
 
-    <div class="my-12 prose max-w-lg">
-      <p class="font-light text-3xl leading-none my-5">
-        This is the end, darling readers.
-      </p>
+  <div class="my-12 prose max-w-lg">
+    <p class="font-light text-3xl leading-none my-5">
+      This is the end, darling readers.
+    </p>
 
-      <p>
-        In Warwick, everything passes, nothing changes. As such, in a year of
-        existence, the Hoar captured all that it wished to say in this narrow,
-        grey, corporate affair of a university. Should you ever find yourself
-        resenting this mechanistic campus of grating self-interest in the West
-        Midlands — open a bottle of red and find your grievance here in this
-        book.
-      </p>
+    <p>
+      In Warwick, everything passes, nothing changes. As such, in a year of
+      existence, the Hoar captured all that it wished to say in this narrow,
+      grey, corporate affair of a university. Should you ever find yourself
+      resenting this mechanistic campus of grating self-interest in the West
+      Midlands — open a bottle of red and find your grievance here in this book.
+    </p>
 
-      <p>It’s been a pleasure Hoaring ourselves out for you,</p>
+    <p>It’s been a pleasure Hoaring ourselves out for you,</p>
 
-      <p>With love,</p>
+    <p>With love,</p>
 
-      <p>Theodora x</p>
-    </div>
-  <!-- </div> -->
-  <div class="prose"><a
-    href="https://www.amazon.co.uk/gp/product/1543260004/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1543260004&linkCode=as2&tag=wkerrycouk-21"
-    class="px-4 py-2 no-underline uppercase border-2 border-gray-800 rounded focus:outline-none hover:bg-gray-800 hover:text-white focus:ring-4 focus:ring-yellow-400 active:translate-y-px active:bg-gray-700 active:text-white"
-  >
-    Buy the book on Amazon
-  </a></div>
+    <p>Theodora x</p>
+  </div>
+
+  <div class="mb-16">
+    <CTA
+      href="https://www.amazon.co.uk/gp/product/1543260004/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1543260004&linkCode=as2&tag=wkerrycouk-21"
+    >
+      Buy the book on Amazon
+    </CTA>
+  </div>
 </Layout>
