@@ -1,0 +1,23 @@
+---
+import makePath from "../utils/makePath";
+import splitTitle from "../utils/splitTitle";
+
+interface Props {
+  slug: string;
+  title: string;
+  date: string;
+}
+
+const { slug, title, date } = Astro.props;
+const [first, last] = splitTitle(title);
+const { href } = makePath(date, slug);
+---
+
+<article id={slug}>
+  <a {...{href}} class="hover:opacity-50 transition-opacity">
+    {first}
+    <span class="inline-flex gap-2 items-center">
+      {last}
+    </span>
+  </a>
+</article>

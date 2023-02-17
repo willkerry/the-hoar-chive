@@ -1,0 +1,73 @@
+---
+import cleanHTML from "../utils/cleanHTML";
+import prettyDate from "../utils/prettyDate";
+
+interface Props {
+  title: string;
+  description: string;
+  ogimage: string;
+  aspectRatio: number;
+  date: string;
+  body: string;
+  slug: string;
+  next: string;
+  prev: string;
+}
+
+const {
+  title,
+  description,
+  ogimage,
+  aspectRatio,
+  date,
+  body,
+  slug,
+  prev,
+  next,
+} = Astro.props;
+
+const d = prettyDate(date);
+const cleaned = cleanHTML(body);
+---
+
+<article id={slug}>
+  <time
+    datetime={date}
+    class="block mb-3 text-sm opacity-60 font-medium tracking-wide uppercase"
+  >
+    {d}
+  </time>
+  <h2 class="mb-4 text-2xl sm:text-3xl md:text-4xl font-medium leading-tighter tracking-tight">
+    {title}
+  </h2>
+  <p class="pb-6 sm:text-lg md:text-xl font-light leading-snug" set:html={description}></p>
+  {
+    aspectRatio && (
+      <div class="flex mb-6 overflow-hidden border rounded">
+        <img src={ogimage} alt={title} width={606} height={606 / aspectRatio} />
+      </div>
+    )
+  }
+  <div class="prose dark:prose-invert mb-6" set:html={cleaned}></div>
+</article>
+
+<div class="grid grid-cols-2 overflow-hidden text-sm my-6">
+  <div class="col-span-1">
+    {
+      prev && (
+        <a href={prev} class="group block py-2 w-full">
+          ← <span class="group-hover:underline">Previous</span>
+        </a>
+      )
+    }
+  </div>
+  <div class="col-span-1 text-right">
+    {
+      next && (
+        <a href={prev} class="group block py-2 w-full">
+          <span class="group-hover:underline">Next</span> →
+        </a>
+      )
+    }
+  </div>
+</div>
