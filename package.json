@@ -14,7 +14,7 @@
     "@fontsource/rubik": "^4.5.11",
     "@tailwindcss/typography": "^0.5.7",
     "astro": "^2.0.13",
-    "sharp": "^0.31.1",
+    "sharp": "^0.32.0",
     "tailwindcss": "^3.1.8"
   }
 }
