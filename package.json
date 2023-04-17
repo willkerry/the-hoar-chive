@@ -9,7 +9,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@astrojs/image": "^0.15.0",
+    "@astrojs/image": "^0.16.6",
     "@astrojs/tailwind": "^3.0.1",
     "@fontsource/rubik": "^4.5.11",
     "@tailwindcss/typography": "^0.5.7",
