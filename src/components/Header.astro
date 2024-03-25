@@ -1,5 +1,5 @@
 ---
-
+import Image from "astro/components/Image.astro";
 ---
 
 <div class="flex items-center justify-between mb-6">
@@ -15,6 +15,12 @@
   </a>
 
   <span class="flex py-1 pl-2">
-    <img src="/logo/book.png" width={40} height={50} class="flex" />
+    <Image
+      src="/logo/book.png"
+      width={40}
+      height={50}
+      class="flex"
+      alt="The Hoar book, pictured on a white studio background."
+    />
   </span>
 </div>
