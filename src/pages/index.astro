@@ -28,9 +28,10 @@ posts.sort((a, b) => {
   description="Satire, freshly squeezed from Warwick Uni"
   date="2021-09-01"
 >
-<div class="text-2xl my-6 font-light">
-  This is the work of around 100 anonymous contributors, between mid-2016 and early-2017.
-</div>
+  <div class="text-2xl my-6 font-light">
+    This is the work of around 100 anonymous contributors, between mid-2016 and
+    early-2017.
+  </div>
   {
     posts.map((post) => (
       <Preview date={post.date} title={post.title} slug={post.slug} />
@@ -50,9 +51,10 @@ posts.sort((a, b) => {
       server with a folder of HTML files connected to the internet. More
       recently, browsers changed and our snapshot stopped working so well. We
       wrote a script to fix it, and belatedly noticed that part of what that
-      script did was to extract all the content from the site and as structured
-      data, so configured a trendy static site generator to turn that data into
-      a proper static site.
+      script did was to extract all the content from the site as structured
+      data, so configured <a href="https://astro.build/"
+        >a trendy static site generator</a
+      > to turn that data into a proper static site.
     </p>
   </div>
 </Layout>
