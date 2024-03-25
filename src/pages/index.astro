@@ -13,7 +13,7 @@ type Post = {
   aspectRatio: number;
 };
 
-const posts: Post[] = data;
+const posts = data satisfies Post[];
 
 // Sort posts by date in descending order
 posts.sort((a, b) => {
