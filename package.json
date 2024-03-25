@@ -11,7 +11,7 @@
   "dependencies": {
     "@astrojs/image": "^0.18.0",
     "@astrojs/tailwind": "^5.1.0",
-    "@fontsource/rubik": "^4.5.11",
+    "@fontsource/rubik": "^5.0.19",
     "@tailwindcss/typography": "^0.5.10",
     "astro": "^4.5.9",
     "sharp": "^0.33.3",
