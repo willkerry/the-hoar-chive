@@ -1,0 +1,18 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("articles");
+
+  return posts.map(({ data: { date, slug } }) => {
+    const d = new Date(date);
+    const year = String(d.getFullYear());
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+
+    return {
+      params: { slug, year, month, day },
+    };
+  });
+}
+---

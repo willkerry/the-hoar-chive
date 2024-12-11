@@ -15,6 +15,6 @@ export default defineConfig({
     domains: ["thehoar.org"],
   },
   redirects: {
-    "/blog/[...rest]": "/[...rest]",
+    "/blog/[year]/[month]/[day]/[slug]": "/[year]/[month]/[day]/[slug]",
   },
 });
