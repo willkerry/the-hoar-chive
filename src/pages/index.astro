@@ -1,24 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import data from "../data/out.json";
 import Preview from "../components/Preview.astro";
+import { getCollection } from "astro:content";
 
-type Post = {
-  date: string;
-  title: string;
-  slug: string;
-  description: string;
-  ogimage: string;
-  body: string;
-  aspectRatio: number;
-};
-
-const posts = data satisfies Post[];
+const posts = await getCollection("articles");
 
 // Sort posts by date in descending order
-posts.sort((a, b) => {
-  if (a.date > b.date) return -1;
-  if (a.date < b.date) return 1;
+posts.sort(({ data: { date: a } }, { data: { date: b } }) => {
+  if (a > b) return -1;
+  if (a < b) return 1;
   return 0;
 });
 ---
@@ -26,14 +16,14 @@ posts.sort((a, b) => {
 <Layout
   title="The Hoar"
   description="Satire, freshly squeezed from Warwick Uni"
-  date="2021-09-01"
+  date={new Date("2021-09-01")}
 >
   <div class="text-2xl my-6 font-light">
     This is the work of around 100 anonymous contributors in 2016 and 2017.
   </div>
   {
     posts.map((post) => (
-      <Preview date={post.date} title={post.title} slug={post.slug} />
+      <Preview date={post.data.date} title={post.data.title} slug={post.id} />
     ))
   }
   <div class="prose dark:prose-invert my-24">

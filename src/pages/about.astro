@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "@astrojs/image/components";
+import { Picture } from "astro:assets";
 import protestImage from "/public/wp-content/uploads/2016/03/protest-footer.png";
 ---
 
 <Layout title="About" description="The Hoar was a satire rag.">
-  <div class="my-12 prose">
+  <div class="my-12 prose dark:prose-invert">
     <h2 class="text-4xl font-normal tracking-tight">
       The Hoar was a satire rag,
       <br />
@@ -47,10 +47,11 @@ import protestImage from "/public/wp-content/uploads/2016/03/protest-footer.png"
         Will &amp; Will
       </a>
     </p>
-    <Image
+    <Picture
       src={protestImage}
       width={608}
       height={166}
+      densities={[1, 2]}
       alt="A line drawing of a 'skyline' of protest signs and placards hoisted above unseen heads."
       class="border-none"
     />

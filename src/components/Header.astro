@@ -1,5 +1,5 @@
 ---
-import Image from "astro/components/Image.astro";
+import { Picture } from "astro:assets";
 import bookImage from "/public/logo/book.png";
 ---
 
@@ -16,11 +16,11 @@ import bookImage from "/public/logo/book.png";
   </a>
 
   <span class="flex py-1 pl-2">
-    <Image
+    <Picture
       src={bookImage}
-      width={80}
-      height={100}
-      class="flex w-[40px] h-[50px]"
+      width={40}
+      height={50}
+      densities={[1, 2]}
       alt="The Hoar book, pictured on a white studio background."
     />
   </span>

@@ -1,4 +1,4 @@
-function prettyDate(date: string): string {
+function prettyDate(date: string | Date): string {
   const d = new Date(date);
   const str = d.toLocaleDateString("en-GB", {
     year: "numeric",

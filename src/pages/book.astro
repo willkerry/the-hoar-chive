@@ -1,38 +1,40 @@
 ---
+import { Picture } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import CTA from "../components/CTA.astro";
 ---
 
 <Layout title="We wrote a book" description="This is the end" wide>
-  <div class="mt-12 prose">
-    <h2 class="text-5xl font-light tracking-tight">We wrote a book</h2>
-  </div>
-  <div class="my-12 prose">
-    <img
+  <div class="prose dark:prose-invert">
+    <h2 class="text-5xl mt-12 font-light tracking-tight">We wrote a book</h2>
+
+    <Picture
       src="https://thehoar.org/wp-content/uploads/2017/02/book.jpg"
       alt="The Hoar's book"
       width={608}
       height={405}
+      densities={[1, 2]}
+      class="my-12"
     />
-  </div>
 
-  <div class="my-12 prose max-w-lg">
-    <p class="font-light text-3xl leading-none my-5">
-      This is the end, darling readers.
-    </p>
+    <div class="my-12">
+      <p class="font-light text-3xl leading-none my-5">
+        This is the end, darling readers.
+      </p>
 
-    <p>
-      In Warwick, everything passes, nothing changes. As such, in a year of
-      existence, the Hoar captured all that it wished to say in this narrow,
-      grey, corporate affair of a university. Should you ever find yourself
-      resenting this mechanistic campus of grating self-interest in the West
-      Midlands — open a bottle of red and find your grievance here in this book.
-    </p>
+      <p>
+        In Warwick, everything passes, nothing changes. As such, in a year of
+        existence, the Hoar captured all that it wished to say in this narrow,
+        grey, corporate affair of a university. Should you ever find yourself
+        resenting this mechanistic campus of grating self-interest in the West
+        Midlands — open a bottle of red and find your grievance here in this
+        book.
+      </p>
 
-    <p>It’s been a pleasure Hoaring ourselves out for you,</p>
+      <p>It’s been a pleasure Hoaring ourselves out for you,</p>
 
-    <p>With love,</p>
+      <p>With love,</p>
 
-    <p>Theodora x</p>
+      <p>Theodora x</p>
+    </div>
   </div>
 </Layout>

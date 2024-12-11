@@ -1,5 +1,5 @@
 function makePath(
-  date: string,
+  date: string | Date,
   slug: string
 ): {
   href: string;

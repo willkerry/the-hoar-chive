@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import "@fontsource/rubik/variable.css";
+import "@fontsource/rubik/variable-italic.css";
 import Footer from "../components/Footer.astro";
 
 const SHARE_IMAGE =
@@ -10,7 +11,7 @@ export interface Props {
   title: string;
   description: string;
   image?: string;
-  date?: string;
+  date?: Date;
   wide?: boolean;
   type?: "article" | "website";
 }
@@ -34,7 +35,7 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="article:published_time" content={date} />
+    <meta name="article:published_time" content={date?.toISOString()} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />

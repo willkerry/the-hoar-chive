@@ -1,24 +1,27 @@
 ---
 import Story from "../../../../../components/Story.astro";
-import data from "../../../../../data/out.json";
 import Layout from "../../../../../layouts/Layout.astro";
 import makePath from "../../../../../utils/makePath";
 
+import { getCollection } from "astro:content";
+
 export async function getStaticPaths() {
-  return data.map(
-    ({ title, description, ogimage, aspectRatio, date, body, slug }, i) => {
+  const posts = await getCollection("articles");
+
+  return posts.map(
+    ({ data: { title, description, ogimage, date, slug } }, i) => {
       const d = new Date(date);
       const year = String(d.getFullYear());
       const month = String(d.getMonth() + 1).padStart(2, "0");
       const day = String(d.getDate()).padStart(2, "0");
 
       const { href: next } = makePath(
-        data[i - 1]?.date || "",
-        data[i - 1]?.slug || ""
+        posts[i - 1]?.data.date || "",
+        posts[i - 1]?.data.slug || ""
       );
       const { href: prev } = makePath(
-        data[i + 1]?.date || "",
-        data[i + 1]?.slug || ""
+        posts[i + 1]?.data.date || "",
+        posts[i + 1]?.data.slug || ""
       );
 
       return {
@@ -27,9 +30,7 @@ export async function getStaticPaths() {
           title,
           description,
           ogimage,
-          aspectRatio,
           date,
-          body,
           slug,
           next,
           prev,
@@ -39,21 +40,9 @@ export async function getStaticPaths() {
   );
 }
 
-const {
-  title,
-  description,
-  ogimage,
-  aspectRatio,
-  date,
-  body,
-  slug,
-  next,
-  prev,
-} = Astro.props;
+const { title, description, ogimage, date, slug, next, prev } = Astro.props;
 ---
 
 <Layout {...{ title, date, description }} image={ogimage} type="article">
-  <Story
-    {...{title, description, ogimage, aspectRatio, date, body, slug, next, prev}}
-  />
+  <Story id={slug} next={next} prev={prev} />
 </Layout>
