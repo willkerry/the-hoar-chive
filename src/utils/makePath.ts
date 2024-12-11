@@ -11,7 +11,7 @@ function makePath(
   const y = dateObject.getFullYear().toString();
   const m = (dateObject.getMonth() + 1).toString().padStart(2, "0");
   const d = dateObject.getDate().toString().padStart(2, "0");
-  const href = `/blog/${y}/${m}/${d}/${slug}`;
+  const href = `/${y}/${m}/${d}/${slug}`;
 
   return {
     href,

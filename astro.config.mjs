@@ -14,4 +14,7 @@ export default defineConfig({
   image: {
     domains: ["thehoar.org"],
   },
+  redirects: {
+    "/blog/[...rest]": "/[...rest]",
+  },
 });
