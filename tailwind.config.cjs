@@ -40,16 +40,12 @@ module.exports = {
               marginTop: null,
               marginBottom: null,
               fontStyle: null,
-              fontWeight: "bold",
+              fontWeight: 400,
               fontSize: "1.25rem",
-              textTransform: "uppercase",
               lineHeight: "27px",
               quotes: "none",
             },
-            "blockquote p": {
-              marginTop: 0,
-              marginBottom: 0,
-            },
+
             "blockquote.alignleft, blockquote.aligncenter": {
               float: "left",
               marginRight: "30px",
