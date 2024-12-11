@@ -1,6 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import makePath from "../utils/makePath";
+import prettyDate from "../utils/prettyDate";
 import splitTitle from "../utils/splitTitle";
+import { getEntry } from "astro:content";
 
 interface Props {
   slug: string;
@@ -9,15 +12,50 @@ interface Props {
 }
 
 const { slug, title, date } = Astro.props;
+
 const [first, last] = splitTitle(title);
 const { href } = makePath(date, slug);
+
+const article = await getEntry("articles", slug);
+
+if (!article) throw new Error(`Article ${slug} not found`);
+
+const {
+  data: { ogimage },
+} = article;
 ---
 
 <article id={slug}>
-  <a {...{ href }} class="hover:opacity-50 transition-opacity">
-    {first}
-    <span class="inline-flex gap-2 items-center">
-      {last}
-    </span>
+  <a href={href} class="group">
+    <h2
+      class="group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors"
+    >
+      {first}
+      <span class="inline-flex gap-2 items-center">
+        {last}
+        {
+          ogimage && (
+            <Image
+              src={ogimage}
+              alt=""
+              width={32}
+              height={32}
+              fit="cover"
+              class="rounded-sm h-4 w-4 group-hover:scale-95 transition-transform"
+            />
+          )
+        }
+      </span>
+    </h2>
+
+    <time
+      datetime={date.toISOString()}
+      class:list={[
+        "block text-xs text-gray-500 font-medium tracking-wider uppercase",
+        "group-hover:text-gray-400 dark:group-hover:text-gray-600 transition-colors",
+      ]}
+    >
+      {prettyDate(date)}
+    </time>
   </a>
 </article>

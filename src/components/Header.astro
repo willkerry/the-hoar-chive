@@ -1,6 +1,6 @@
 ---
-import { Picture } from "astro:assets";
-import bookImage from "/public/logo/book.png";
+import { Image } from "astro:assets";
+import bookImage from "./book.png";
 ---
 
 <div class="flex items-center justify-between mb-6">
@@ -16,7 +16,7 @@ import bookImage from "/public/logo/book.png";
   </a>
 
   <span class="flex py-1 pl-2">
-    <Picture
+    <Image
       src={bookImage}
       width={40}
       height={50}

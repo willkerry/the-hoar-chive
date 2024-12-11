@@ -2,7 +2,7 @@
 import { getEntry } from "astro:content";
 import cleanHTML from "../utils/cleanHTML";
 import prettyDate from "../utils/prettyDate";
-import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 
 interface Props {
   id: string;
@@ -40,7 +40,7 @@ const cleaned = cleanHTML(body);
   {
     aspectRatio && (
       <div class="flex mb-6 overflow-hidden border rounded">
-        <Picture
+        <Image
           src={ogimage}
           alt={title}
           width={606}
