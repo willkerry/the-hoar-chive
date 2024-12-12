@@ -5,9 +5,6 @@ import "@fontsource/rubik/variable-italic.css";
 import Footer from "../components/Footer.astro";
 import { getImage } from "astro:assets";
 
-// const SHARE_IMAGE =
-//   "https://thehoar.org/wp-content/uploads/2016/03/Facebook-1.png";
-
 const { src: SHARE_IMAGE } = await getImage({
   src: "https://thehoar.org/wp-content/uploads/2016/03/Facebook-1.png",
   width: 1200,
@@ -82,9 +79,10 @@ const {
     class="flex flex-col items-center justify-center min-h-screen py-4 sm:py-8 antialiased dark:bg-black dark:text-gray-200"
   >
     <main
-      class={`flex flex-col flex-1 max-w-screen-sm gap-4 px-4 w-full ${
-        wide ? "max-w-screen-2xl px-10" : "max-w-screen-sm"
-      }`}
+      class:list={[
+        "flex flex-col flex-1 gap-4 px-4 w-full",
+        wide ? "max-w-screen-2xl px-10" : "max-w-screen-sm",
+      ]}
     >
       <Header />
       <slot />
