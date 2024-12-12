@@ -15,7 +15,12 @@ import bookImage from "./book.png";
     </p>
   </a>
 
-  <span class="flex py-1 pl-2">
+  <button
+    id="dark-mode-button"
+    type="button"
+    class="flex py-1 pl-2"
+    aria-label="Toggle dark mode"
+  >
     <Image
       src={bookImage}
       width={40}
@@ -23,5 +28,32 @@ import bookImage from "./book.png";
       densities={[1, 2]}
       alt="The Hoar book, pictured on a white studio background."
     />
-  </span>
+  </button>
 </div>
+
+<script>
+  const toggleDarkMode = () => {
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+    const newStatus = !isDarkMode;
+
+    localStorage.setItem("darkMode", String(newStatus));
+
+    document.documentElement.classList.toggle("dark", newStatus);
+  };
+
+  const initialiseDarkMode = () => {
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    }
+  };
+
+  initialiseDarkMode();
+
+  const darkModeButton = document.getElementById("dark-mode-button");
+
+  darkModeButton?.addEventListener("click", () => {
+    toggleDarkMode();
+  });
+</script>
