@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Preview from "../components/Preview.astro";
+import ArticleControls from "../components/ArticleControls.astro";
 import { getCollection } from "astro:content";
 
 const posts = await getCollection("articles");
 
-// Sort posts by date in descending order
 posts.sort(({ data: { date: a } }, { data: { date: b } }) => {
   if (a > b) return -1;
   if (a < b) return 1;
@@ -22,15 +22,7 @@ posts.sort(({ data: { date: a } }, { data: { date: b } }) => {
     This is the work of around 100 anonymous contributors in 2016 and 2017.
   </div>
 
-  <div class="mb-6">
-    <button
-      id="shuffle-button"
-      type="button"
-      class="border-2 uppercase font-medium tracking-widest text-xs border-gray-300 text-gray-400 rounded px-2 p-1.5 hover:border-black hover:text-black"
-    >
-      Shuffle
-    </button>
-  </div>
+  <ArticleControls />
 
   {
     posts.map((post) => (
@@ -58,22 +50,3 @@ posts.sort(({ data: { date: a } }, { data: { date: b } }) => {
     </p>
   </div>
 </Layout>
-
-<script>
-  const shuffleButton = document.getElementById("shuffle-button");
-  const container = document.getElementsByTagName("main")[0];
-
-  shuffleButton?.addEventListener("click", () => {
-    const posts = document.querySelectorAll("article");
-
-    for (const post of posts) {
-      post.remove();
-    }
-
-    const shuffled = Array.from(posts).sort(() => Math.random() - 0.5);
-
-    for (const post of shuffled) {
-      container?.insertBefore(post, container?.lastElementChild || null);
-    }
-  });
-</script>

@@ -25,7 +25,7 @@ const {
 } = article;
 ---
 
-<article id={slug}>
+<article id={slug} data-date={date.toISOString()}>
   <a href={href} class="group">
     <h2
       class="group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors"
