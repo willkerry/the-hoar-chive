@@ -8,9 +8,6 @@ export default defineConfig({
   integrations: [tailwind()],
   build: { assets: "_hoard" },
   site: "https://thehoar.org",
-  experimental: {
-    responsiveImages: true,
-  },
   image: {
     domains: ["thehoar.org"],
   },

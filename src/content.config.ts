@@ -1,6 +1,6 @@
 import { file } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
-import { string as sq } from "smartquotes-ts";
+import { smartquotes } from "./utils/smartquotes";
 
 const articles = defineCollection({
   loader: file("src/data/out.json"),
@@ -8,8 +8,8 @@ const articles = defineCollection({
     z.object({
       date: z.coerce.date(),
       slug: z.string(),
-      title: z.string().transform((s) => sq(s)),
-      description: z.string().transform((s) => sq(s)),
+      title: z.string().transform((s) => smartquotes(s)),
+      description: z.string().transform((s) => smartquotes(s)),
       ogimage: image(),
       body: z.string(),
       aspectRatio: z.number(),
