@@ -1,0 +1,42 @@
+<span class="relative inline-block">
+    <slot />
+    <svg
+        class="absolute inset-0 h-full w-full overflow-visible text-blue-600 dark:text-blue-400"
+        viewBox="0 0 100 20"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+    >
+        <path
+            pathLength="1"
+            fill="none"
+            stroke-width="2"
+            stroke="currentColor"
+            d="M-4 12 C 30 10.6, 64 11.6, 104 10.4"
+        >
+        </path>
+    </svg>
+</span>
+
+<style>
+    svg path {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        vector-effect: non-scaling-stroke;
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        animation: biro-draw 0.22s ease-out 0.45s forwards;
+    }
+
+    @keyframes biro-draw {
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        svg path {
+            stroke-dashoffset: 0;
+            animation: none;
+        }
+    }
+</style>
