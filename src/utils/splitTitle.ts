@@ -1,7 +1,7 @@
 function splitTitle(title: string): string[] {
   const arr = title.split(" ");
   const last = arr.pop() || "";
-  const first = arr.join(" ");
+  const first = arr.join(" ").concat(" ");
 
   return [first, last];
 }
