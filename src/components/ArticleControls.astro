@@ -1,18 +1,12 @@
+---
+import Button from "./Button.astro";
+---
+
 <div class="mb-6 flex gap-2">
-  <button
-    id="shuffle-button"
-    type="button"
-    class="border-2 uppercase font-medium tracking-widest text-xs border-gray-300 text-gray-600 rounded px-2 p-1.5 hover:border-black hover:text-black"
-  >
-    Shuffle
-  </button>
-  <button
-    id="clear-button"
-    type="button"
-    class="border-2 uppercase font-medium tracking-widest text-xs border-red-300 text-red-600 rounded px-2 p-1.5 hover:border-black hover:text-black hidden"
-  >
+  <Button id="shuffle-button" type="button"> Shuffle </Button>
+  <Button id="clear-button" type="button" variant="destructive" class="hidden">
     Clear
-  </button>
+  </Button>
 </div>
 
 <script>
@@ -31,7 +25,7 @@
 
     localStorage.setItem(
       "shuffled-ids",
-      JSON.stringify(shuffled.map((post) => post.id))
+      JSON.stringify(shuffled.map((post) => post.id)),
     );
 
     for (const post of shuffled) {
@@ -67,11 +61,11 @@
     clearButton?.classList.remove("hidden");
 
     const shuffledIds = JSON.parse(
-      localStorage.getItem("shuffled-ids") || "[]"
+      localStorage.getItem("shuffled-ids") || "[]",
     );
 
     const orderMap = new Map<string, number>(
-      shuffledIds.map((id: string, index: number) => [id, index])
+      shuffledIds.map((id: string, index: number) => [id, index]),
     );
 
     const shuffled = Array.from(posts).sort((a, b) => {

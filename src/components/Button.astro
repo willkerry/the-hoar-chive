@@ -1,0 +1,27 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = {
+    variant?: keyof typeof variants;
+} & HTMLAttributes<"button">;
+
+const { class: className, variant = "primary", ...props } = Astro.props;
+
+const variants = {
+    primary:
+        "border-gray-300 text-gray-600h dark:border-gray-700 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-950",
+    destructive:
+        "border-red-300 text-red-600 dark:border-red-700 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950 dark:hover:text-red-200",
+};
+---
+
+<button
+    {...props}
+    class:list={[
+        "border-2 uppercase font-medium tracking-widest text-xs  rounded px-2 p-1.5 transition-colors",
+        variants[variant],
+        className,
+    ]}
+>
+    <slot />
+</button>
