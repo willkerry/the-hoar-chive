@@ -9,9 +9,10 @@ interface Props {
   slug: string;
   title: string;
   date: Date;
+  hideDate?: boolean;
 }
 
-const { slug, title, date } = Astro.props;
+const { slug, title, date, hideDate = false } = Astro.props;
 
 const [first, last] = splitTitle(title);
 const { href } = makePath(date, slug);
@@ -48,14 +49,18 @@ const {
       </span>
     </h2>
 
-    <time
-      datetime={date.toISOString()}
-      class:list={[
-        "block text-xs text-gray-500 font-medium tracking-wider uppercase",
-        "group-hover:text-gray-400 dark:group-hover:text-gray-600 transition-colors",
-      ]}
-    >
-      {prettyDate(date)}
-    </time>
+    {
+      !hideDate && (
+        <time
+          datetime={date.toISOString()}
+          class:list={[
+            "block text-xs text-gray-500 font-medium tracking-wider uppercase",
+            "group-hover:text-gray-400 dark:group-hover:text-gray-600 transition-colors",
+          ]}
+        >
+          {prettyDate(date)}
+        </time>
+      )
+    }
   </a>
 </article>

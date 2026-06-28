@@ -1,12 +1,17 @@
 ---
 import Story from "../../../../components/Story.astro";
 import Layout from "../../../../layouts/Layout.astro";
-import makePath from "../../../../utils/makePath";
 
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   const posts = await getCollection("articles");
+
+  posts.sort((a, b) => {
+    const dateA = new Date(a.data.date);
+    const dateB = new Date(b.data.date);
+    return dateB.getTime() - dateA.getTime();
+  });
 
   return posts.map(
     ({ data: { title, description, ogimage, date, slug } }, i) => {
@@ -15,14 +20,8 @@ export async function getStaticPaths() {
       const month = String(d.getMonth() + 1).padStart(2, "0");
       const day = String(d.getDate()).padStart(2, "0");
 
-      const { href: next } = makePath(
-        posts[i - 1]?.data.date || "",
-        posts[i - 1]?.data.slug || ""
-      );
-      const { href: prev } = makePath(
-        posts[i + 1]?.data.date || "",
-        posts[i + 1]?.data.slug || ""
-      );
+      const next = posts[i - 1]?.data.slug;
+      const prev = posts[i + 1]?.data.slug;
 
       return {
         params: { slug, year, month, day },
@@ -36,7 +35,7 @@ export async function getStaticPaths() {
           prev,
         },
       };
-    }
+    },
   );
 }
 

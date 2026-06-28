@@ -3,11 +3,13 @@ import { getEntry } from "astro:content";
 import cleanHTML from "../utils/cleanHTML";
 import prettyDate from "../utils/prettyDate";
 import { Image } from "astro:assets";
+import Preview from "./Preview.astro";
+import makePath from "../utils/makePath";
 
 interface Props {
   id: string;
-  next: string;
-  prev: string;
+  next: string | undefined;
+  prev: string | undefined;
 }
 
 const { id, prev, next } = Astro.props;
@@ -19,6 +21,9 @@ const { title, description, ogimage, date, body, aspectRatio } = article.data;
 
 const d = prettyDate(date);
 const cleaned = cleanHTML(body);
+
+const prevArticle = prev ? await getEntry("articles", prev) : null;
+const nextArticle = next ? await getEntry("articles", next) : null;
 ---
 
 <article id={id}>
@@ -56,18 +61,36 @@ const cleaned = cleanHTML(body);
 <div class="grid grid-cols-2 overflow-hidden text-sm my-6">
   <div class="col-span-1">
     {
-      prev && (
-        <a href={prev} class="group block py-2 w-full">
-          ← <span class="group-hover:underline">Previous</span>
+      prevArticle && (
+        <a
+          href={makePath(prevArticle.data.date, prevArticle.data.slug).href}
+          class="block py-2 w-full"
+        >
+          <span>← Previous</span>
+          <Preview
+            date={prevArticle.data.date}
+            title={prevArticle.data.title}
+            slug={prevArticle.data.slug}
+            hideDate={true}
+          />
         </a>
       )
     }
   </div>
   <div class="col-span-1 text-right">
     {
-      next && (
-        <a href={prev} class="group block py-2 w-full">
-          <span class="group-hover:underline">Next</span> →
+      nextArticle && (
+        <a
+          href={makePath(nextArticle.data.date, nextArticle.data.slug).href}
+          class="block py-2 w-full"
+        >
+          <span>Next →</span>
+          <Preview
+            date={nextArticle.data.date}
+            title={nextArticle.data.title}
+            slug={nextArticle.data.slug}
+            hideDate={true}
+          />{" "}
         </a>
       )
     }
